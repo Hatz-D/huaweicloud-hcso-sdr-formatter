@@ -79,8 +79,8 @@ def csv_formatter(file, directory):
         writer.writerows(final)
 
 
-    # Appends the saved data to a new CSV file called 'relatorio' in order to generate the report
-    with open(os.path.join(directory, 'relatorio.csv'), 'a', newline='') as report:
+    # Appends the saved data to a new CSV file called 'report' in order to generate the report
+    with open(os.path.join(directory, 'report.csv'), 'a', newline='') as report:
         fieldnames = ['ResourceType', 'Flavor', 'TimeStamp', 'Amount']
         writer = csv.writer(report)
         writer.writerow(fieldnames)
