@@ -57,7 +57,7 @@ def csv_formatter(file, directory):
 
     # Appends the filtered data to a new CSV file called 'output.csv'
     with open(os.path.join(directory, 'output.csv'), 'a', newline='') as csvoutput:
-        fieldnames = ['RecordType', 'TimeStamp', 'UserID', 'RegionCode', 'AZCode', 'CloudServiceType', 'ResourceType', 'ResourceSpec', 'ResourceID', 'CSBParams', 'BeginTime', 'EndTime', 'FactorName', 'FactorValue(seconds)', 'ExtendedParams', 'Tags', 'EnterpriseProjectID', 'ChargeMode']
+        fieldnames = ['RecordType', 'TimeStamp', 'UserID', 'RegionCode', 'AZCode', 'CloudServiceType', 'ResourceType', 'ResourceSpec', 'ResourceID', 'CSBParams', 'BeginTime', 'EndTime', 'FactorName', 'FactorValue(seconds)', 'ExtendedParams', 'Tags', 'EnterpriseProjectID']
         final.append(fieldnames)
 
         for line in array:
