@@ -46,13 +46,15 @@ def csv_formatter(file, directory):
     with open(file, newline='') as file:
         csvfile = csv.reader(file)
 
-        # Parses the CSV file and filters the header and tail. Also splits the data into several columns 
+        # Parses the CSV file and splits the data into several columns by the separator |
         for line in csvfile:
-            if(line[0][0:2] == '10' or line[0][0:2] == '90'):
-                array.append(line.pop().split('|'))
+            # Checks whether there are any empty columns in the raw data and concatenates data if so
+            if(len(line) > 1):
+                placeholder = ''.join(line)
+                line = []
+                line.append(placeholder)
 
-            else:
-                array.append(line.pop().split(' | '))
+            array.append([column.strip() for column in line.pop().split('|')])
 
 
     # Appends the filtered data to a new CSV file called 'output.csv'
@@ -61,6 +63,7 @@ def csv_formatter(file, directory):
         final.append(fieldnames)
 
         for line in array:
+            # Filters header and tail of the CSV file
             if len(line) <= 4:
                 continue
 
